@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_cdltd_vendor_o_0.VendorRiskUtils</api_name>
+        <caller_access/>
+        <client_callable>false</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>VendorRiskUtils</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var VendorRiskUtils = Class.create();
+VendorRiskUtils.prototype = {
+    initialize: function() {
+        this.HIGH = parseInt(gs.getProperty('x_snc_vendor.risk.high_threshold', '60'), 10);
+        this.MEDIUM = parseInt(gs.getProperty('x_snc_vendor.risk.medium_threshold', '30'), 10);
+        this.ACV_LIMIT = parseFloat(gs.getProperty('x_snc_vendor.risk.acv_threshold', '5000000'));
+        this.MANDATORY = gs.getProperty('x_snc_vendor.mandatory_docs',
+            'tax_certificate,bank_letter,incorporation_certificate').split(',');
+    },
+ 
+    calculateRiskScore: function(vendorSysId) {
+        var vr = new GlideRecord('x_snc_vendor_request');
+        if (!vr.get(vendorSysId)) {
+            gs.warn('VendorRiskUtils: request not found ' + vendorSysId);
+            return { score: 0, level: 'low' };
+        }
+        return this.calculateFromRecord(vr);
+    },
+ 
+    calculateFromRecord: function(vr) {
+        var score = 0;
+        if (String(vr.country.restricted) == 'true') score += 40;
+        if (parseFloat(vr.getValue('annual_contract_value')) > this.ACV_LIMIT) score += 20;
+        var missing = 0;
+        for (var i = 0; i < this.MANDATORY.length; i++) {
+            if (!this._isReceived(vr.getUniqueValue(), this.MANDATORY[i].trim())) missing++;
+        }
+        score += Math.min(missing * 10, 30);
+        if (vr.getValue('category') == 'consulting') score += 10;
+        return { score: score, level: this.levelFor(score) };
+    },
+ 
+    levelFor: function(score) {
+        if (score >= this.HIGH) return 'high';
+        if (score >= this.MEDIUM) return 'medium';
+        return 'low';
+    },
+    recalculateAndSave: function(vendorSysId) {
+        var vr = new GlideRecord('x_snc_vendor_request');
+        if (!vr.get(vendorSysId)) return null;
+        var r = this.calculateFromRecord(vr);
+        vr.setValue('risk_score', r.score);
+        vr.setValue('risk_level', r.level);
+        vr.setWorkflow(false);
+        vr.update();
+        gs.info('VendorRiskUtils: ' + vr.getValue('number') + ' score=' + r.score + ' level=' + r.level);
+        return r;
+    },
+ 
+    isDuplicateTaxId: function(taxId, excludeSysId) {
+        if (!taxId) return false;
+        var gr = new GlideRecord('x_snc_vendor_request');
+        gr.addQuery('tax_id', String(taxId).trim().toUpperCase());
+        gr.addQuery('state', '!=', 'rejected');
+        if (excludeSysId) gr.addQuery('sys_id', '!=', excludeSysId);
+        gr.setLimit(1);
+        gr.query();
+        return gr.hasNext();
+    },
+ 
+    _isReceived: function(requestId, docType) {
+        var d = new GlideRecord('x_snc_vendor_document');
+        d.addQuery('vendor_request', requestId);
+        d.addQuery('document_type', docType);
+        d.addQuery('received', true);
+        d.setLimit(1);
+        d.query();
+        return d.hasNext();
+    },
+    type: 'VendorRiskUtils'
+};]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-06 10:07:12</sys_created_on>
+        <sys_id>60333d85c53703107f4486968fa92fc9</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VendorRiskUtils</sys_name>
+        <sys_package display_value="Vendor Onboarding Hub" source="x_cdltd_vendor_o_0">31b85141c5f303107f4486968fa92f30</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Vendor Onboarding Hub">31b85141c5f303107f4486968fa92f30</sys_scope>
+        <sys_update_name>sys_script_include_60333d85c53703107f4486968fa92fc9</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-06 10:07:12</sys_updated_on>
+    </sys_script_include>
+</record_update>
