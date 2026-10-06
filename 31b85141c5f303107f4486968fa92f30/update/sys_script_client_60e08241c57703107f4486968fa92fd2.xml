@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update sys_domain="global" table="sys_script_client">
+    <sys_script_client action="INSERT_OR_UPDATE">
+        <active>true</active>
+        <applies_extended>false</applies_extended>
+        <condition/>
+        <description/>
+        <field>tax_id</field>
+        <global>true</global>
+        <isolate_script>true</isolate_script>
+        <messages/>
+        <name>Check duplicate Tax ID</name>
+        <order/>
+        <script><![CDATA[function onChange(control, oldValue, newValue, isLoading, isTemplate) {
+    if (isLoading || newValue === '') return;
+    var ga = new GlideAjax('x_snc_vendor.VendorRiskAjax');
+    ga.addParam('sysparm_name', 'isDuplicateTaxId');
+    ga.addParam('sysparm_tax_id', newValue);
+    ga.addParam('sysparm_current_id', g_form.getUniqueValue());
+    ga.getXMLAnswer(function(answer) {
+        if (answer == 'true') {
+            g_form.clearValue('tax_id');
+            g_form.showFieldMsg('tax_id', 'A request with this Tax ID already exists.', 'error');
+        }
+    });
+}]]></script>
+        <sys_class_name>sys_script_client</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-06 11:05:27</sys_created_on>
+        <sys_domain>global</sys_domain>
+        <sys_domain_path>/</sys_domain_path>
+        <sys_id>60e08241c57703107f4486968fa92fd2</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>Check duplicate Tax ID</sys_name>
+        <sys_overrides/>
+        <sys_package display_value="Vendor Onboarding Hub" source="x_cdltd_vendor_o_0">31b85141c5f303107f4486968fa92f30</sys_package>
+        <sys_policy/>
+        <sys_scope display_value="Vendor Onboarding Hub">31b85141c5f303107f4486968fa92f30</sys_scope>
+        <sys_update_name>sys_script_client_60e08241c57703107f4486968fa92fd2</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-06 11:05:27</sys_updated_on>
+        <table>x_cdltd_vendor_o_0_vendor_request</table>
+        <type>onChange</type>
+        <ui_type>10</ui_type>
+        <view/>
+    </sys_script_client>
+</record_update>

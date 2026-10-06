@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update table="sys_script_include">
+    <sys_script_include action="INSERT_OR_UPDATE">
+        <access>package_private</access>
+        <active>true</active>
+        <api_name>x_cdltd_vendor_o_0.VendorRiskAjax</api_name>
+        <caller_access/>
+        <client_callable>true</client_callable>
+        <description/>
+        <mobile_callable>false</mobile_callable>
+        <name>VendorRiskAjax</name>
+        <sandbox_callable>false</sandbox_callable>
+        <script><![CDATA[var VendorRiskAjax = Class.create();
+VendorRiskAjax.prototype = Object.extendsObject(global.AbstractAjaxProcessor, {
+    isDuplicateTaxId: function() {
+        var taxId = this.getParameter('sysparm_tax_id');
+        var currentId = this.getParameter('sysparm_current_id');
+        var dup = new VendorRiskUtils().isDuplicateTaxId(taxId, currentId);
+        return dup ? 'true' : 'false';
+    },
+    type: 'VendorRiskAjax'
+});]]></script>
+        <sys_class_name>sys_script_include</sys_class_name>
+        <sys_created_by>admin</sys_created_by>
+        <sys_created_on>2026-10-06 11:01:13</sys_created_on>
+        <sys_id>65c33985c53703107f4486968fa92f64</sys_id>
+        <sys_mod_count>0</sys_mod_count>
+        <sys_name>VendorRiskAjax</sys_name>
+        <sys_package display_value="Vendor Onboarding Hub" source="x_cdltd_vendor_o_0">31b85141c5f303107f4486968fa92f30</sys_package>
+        <sys_policy>read</sys_policy>
+        <sys_scope display_value="Vendor Onboarding Hub">31b85141c5f303107f4486968fa92f30</sys_scope>
+        <sys_update_name>sys_script_include_65c33985c53703107f4486968fa92f64</sys_update_name>
+        <sys_updated_by>admin</sys_updated_by>
+        <sys_updated_on>2026-10-06 11:01:13</sys_updated_on>
+    </sys_script_include>
+</record_update>
