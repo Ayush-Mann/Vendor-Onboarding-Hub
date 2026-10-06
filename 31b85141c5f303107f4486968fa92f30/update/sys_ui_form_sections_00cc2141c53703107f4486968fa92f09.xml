@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?><record_update>
+    <sys_ui_form_sections form_id="00cc2141c53703107f4486968fa92f09" sys_domain="global" table="x_cdltd_vendor_o_0_vendor_request" version="3">
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>0</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-06 09:36:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>44cc6141c53703107f4486968fa92fe2</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_cdltd_vendor_o_0_vendor_request" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">00cc2141c53703107f4486968fa92f09</sys_ui_form>
+            <sys_ui_section caption="NULL" display_value="" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">56eb95c1c5f303107f4486968fa92fb0</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-06 09:36:49</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>1</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-06 09:36:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>48cc6141c53703107f4486968fa92fe3</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_cdltd_vendor_o_0_vendor_request" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">00cc2141c53703107f4486968fa92f09</sys_ui_form>
+            <sys_ui_section caption="Vendor Details" display_value="Vendor Details" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">88cc6141c53703107f4486968fa92fe2</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-06 09:36:49</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>2</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-06 09:37:00</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>76cc6141c53703107f4486968fa92fee</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_cdltd_vendor_o_0_vendor_request" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">00cc2141c53703107f4486968fa92f09</sys_ui_form>
+            <sys_ui_section caption="Risk Assessment" display_value="Risk Assessment" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">3acc6141c53703107f4486968fa92fed</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-06 09:37:00</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>3</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-06 09:37:12</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>65dca141c53703107f4486968fa92f8f</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_cdltd_vendor_o_0_vendor_request" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">00cc2141c53703107f4486968fa92f09</sys_ui_form>
+            <sys_ui_section caption="Rejection" display_value="Rejection" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">2ddca141c53703107f4486968fa92f8e</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-06 09:37:12</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form_section action="INSERT_OR_UPDATE">
+            <position>4</position>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-06 09:37:12</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>75dcad01c53703107f4486968fa92f97</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_overrides/>
+            <sys_ui_form display_value="x_cdltd_vendor_o_0_vendor_request" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">00cc2141c53703107f4486968fa92f09</sys_ui_form>
+            <sys_ui_section caption="Rejection" display_value="Rejection" name="x_cdltd_vendor_o_0_vendor_request" sys_domain="global" view="Default view">bddcad01c53703107f4486968fa92f96</sys_ui_section>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-06 09:37:12</sys_updated_on>
+        </sys_ui_form_section>
+        <sys_ui_form action="INSERT_OR_UPDATE">
+            <name>x_cdltd_vendor_o_0_vendor_request</name>
+            <roles/>
+            <sys_class_name>sys_ui_form</sys_class_name>
+            <sys_created_by>admin</sys_created_by>
+            <sys_created_on>2026-10-06 09:36:49</sys_created_on>
+            <sys_domain>global</sys_domain>
+            <sys_domain_path>/</sys_domain_path>
+            <sys_id>00cc2141c53703107f4486968fa92f09</sys_id>
+            <sys_mod_count>0</sys_mod_count>
+            <sys_name>x_cdltd_vendor_o_0_vendor_request</sys_name>
+            <sys_overrides/>
+            <sys_package display_value="Vendor Onboarding Hub" source="x_cdltd_vendor_o_0">31b85141c5f303107f4486968fa92f30</sys_package>
+            <sys_policy/>
+            <sys_scope display_value="Vendor Onboarding Hub">31b85141c5f303107f4486968fa92f30</sys_scope>
+            <sys_update_name>sys_ui_form_sections_00cc2141c53703107f4486968fa92f09</sys_update_name>
+            <sys_updated_by>admin</sys_updated_by>
+            <sys_updated_on>2026-10-06 09:36:49</sys_updated_on>
+            <sys_user/>
+            <view display_value="Default view" name="NULL">Default view</view>
+            <view_name/>
+        </sys_ui_form>
+    </sys_ui_form_sections>
+</record_update>
