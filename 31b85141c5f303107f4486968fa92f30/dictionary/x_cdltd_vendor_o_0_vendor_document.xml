@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="46e9a58dc5f303107f4486968fa92f19" label="Vendor Document" max_length="40" name="x_cdltd_vendor_o_0_vendor_document" type="collection">
+        <element choice="3" label="Document Type" max_length="40" name="document_type" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Incorporation Certificate" sequence="2" value="incorporation_certificate"/>
+                <element inactive_on_update="false" label="Tax Certificate" sequence="0" value="tax_certificate"/>
+                <element inactive_on_update="false" label="Bank Letter" sequence="1" value="bank_letter"/>
+                <element inactive_on_update="false" label="Insurance Certificate" sequence="3" value="insurance_certificate"/>
+            </choice>
+        </element>
+        <element label="Vendor Request" mandatory="true" max_length="32" name="vendor_request" reference="x_cdltd_vendor_o_0_vendor_request" type="reference"/>
+        <element label="Received" max_length="255" name="received" type="boolean"/>
+        <element label="Remarks" max_length="400" name="remarks" type="string"/>
+        <element label="Received On" max_length="40" name="received_on" type="glide_date"/>
+        <index name="index">
+            <element name="vendor_request"/>
+        </index>
+    </element>
+</database>
