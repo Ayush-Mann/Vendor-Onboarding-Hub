@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?><database>
+    <element db_object_id="ebda9d81c5f303107f4486968fa92f89" label="Vendor Request" max_length="40" name="x_cdltd_vendor_o_0_vendor_request" type="collection">
+        <element label="Tax ID" mandatory="true" max_length="40" name="tax_id" type="string"/>
+        <element label="Vendor Name" mandatory="true" max_length="40" name="vendor_name" type="string"/>
+        <element label="Risk Score" max_length="40" name="risk_score" read_only="true" type="integer"/>
+        <element choice="3" label="State" max_length="40" name="state" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Submitted" sequence="2" value="submitted"/>
+                <element inactive_on_update="false" label="Approved" sequence="4" value="approved"/>
+                <element inactive_on_update="false" label="Draft" sequence="0" value="draft"/>
+                <element inactive_on_update="false" label="Rejected" sequence="5" value="rejected"/>
+                <element inactive_on_update="false" label="Under Review" sequence="3" value="under_review"/>
+                <element inactive_on_update="false" label="Documents Pending" sequence="1" value="documents_pending"/>
+            </choice>
+        </element>
+        <element label="Annual Contract Value" mandatory="true" max_length="40" name="annual_contract_value" type="currency"/>
+        <element label="Bank Account Number" max_length="40" name="bank_account_number" type="string"/>
+        <element choice="3" label="Category" max_length="40" name="category" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="Consulting" sequence="3" value="consulting"/>
+                <element inactive_on_update="false" label="Raw Material" sequence="0" value="raw_material"/>
+                <element inactive_on_update="false" label="Facilities" sequence="4" value="facilities"/>
+                <element inactive_on_update="false" label="Logistics" sequence="1" value="logistics"/>
+                <element inactive_on_update="false" label="IT Services" sequence="2" value="it_services"/>
+            </choice>
+        </element>
+        <element choice="3" label="Risk Level" max_length="400" name="risk_level" read_only="true" type="choice">
+            <choice>
+                <element inactive_on_update="false" label="High" sequence="2" value="high"/>
+                <element inactive_on_update="false" label="Low" sequence="0" value="low"/>
+                <element inactive_on_update="false" label="Medium" sequence="1" value="medium"/>
+            </choice>
+        </element>
+        <element choice="3" label="Country" max_length="40" name="country" type="choice">
+            <choice>
+                <element inactive="true" inactive_on_update="true" label="Germany" sequence="4" value="germany"/>
+                <element inactive_on_update="false" label="Pakistan" sequence="1" value="pakistan"/>
+                <element inactive_on_update="false" label="India" sequence="0" value="india"/>
+                <element inactive_on_update="false" label="Singapore" sequence="5" value="singapore"/>
+                <element inactive_on_update="false" label="Japan" sequence="6" value="japan"/>
+                <element inactive_on_update="false" label="Australia" sequence="2" value="australia"/>
+                <element inactive="true" inactive_on_update="true" label="France" sequence="3" value="france"/>
+            </choice>
+        </element>
+        <element attributes="ignore_filter_on_new=true" default="javascript:global.getNextObjNumberPadded();" label="Number" max_length="40" name="number" type="string"/>
+        <element default="javascript:gs.getUserID();" label="Procurement Officer" max_length="32" name="procurement_officer" reference="sys_user" type="reference"/>
+        <index name="index">
+            <element name="procurement_officer"/>
+        </index>
+    </element>
+</database>
